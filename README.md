@@ -58,7 +58,36 @@ A idéia deste repositório é armazenar informações sobre Git & GitHub, enqua
 | `git push`                 | Envia os commits locais para um repositório remoto, atualizando a versão remota do projeto com as alterações feitas.                   |
 | `git pull`                 | Atualiza o repositório local com as alterações do repositório remoto, trazendo as alterações para o ambiente de desenvolvimento local. |
 | `git fetch`                | Recupera todas as alterações do repositório remoto para o repositório local, sem mesclá-las automaticamente com o código local.        |
+| `git restore`              | Descarta mudanças em arquivos do diretório de trabalho ou restaura arquivos para um estado anterior.                                   |
 | `git branch`               | Lista todas as branches presentes no repositório, mostrando a branch atual e destacando a branch ativa.                                |
 | `git checkout <branch>`    | Muda para a branch especificada, permitindo que você trabalhe em diferentes funcionalidades ou correções de bugs.                      |
 | `git merge <branch>`       | Combina as alterações de uma branch específica com a branch atual, integrando as mudanças de ambas as branches.                        |
 | `git log`                  | Mostra um registro detalhado de todos os commits feitos no repositório, exibindo informações como autor, data e mensagem de commit.    |
+
+## ⏪**Importante!** » `git reset`
+
+O `git reset` é usado para desfazer alterações no histórico de commits do repositório Git. Dependendo do modo como é usado, ele pode ser usado para:
+
+- Desfazer commits e mover o HEAD e a branch atual para um commit específico.
+- Desfazer mudanças no staging area.
+- Descartar alterações no diretório de trabalho.
+
+**Modos de Uso:**
+
+**1**. **`git reset HEAD <arquivo>`:**
+
+- Remove arquivos do staging area, mantendo as alterações no diretório de trabalho.
+
+**2**. **`git reset --soft <commit>`:**
+
+- Desfaz commits, movendo o HEAD para o commit especificado, mantendo as alterações nos arquivos no staging area e no diretório de trabalho.
+
+**3**. **`git reset --mixed <commit>` (padrão):**
+
+- Desfaz commits, movendo o HEAD para o commit especificado, removendo as alterações do staging area, mas mantendo as alterações no diretório de trabalho.
+
+**4**. **`git reset --hard <commit>`:**
+
+- Desfaz commits, movendo o HEAD para o commit especificado, removendo as alterações do staging area e do diretório de trabalho, restaurando-os para o estado do commit.
+
+É importante ter cuidado ao usar `git reset`, pois ele pode causar perda permanente de dados se usado incorretamente.
